@@ -1,0 +1,77 @@
+/* =========================================================
+   Shared responsive overrides for all pages
+   ========================================================= */
+
+/* Touch target minimum — apply to all interactive buttons across pages */
+@media (max-width: 768px) {
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .parent-field input,
+  .parent-field textarea,
+  .fee-field input,
+  .fee-field select,
+  .fee-field textarea,
+  .rupee-input input {
+    font-size: 16px; /* prevents iOS auto-zoom on focus */
+  }
+
+  .continue-button,
+  .parent-continue-button,
+  .parent-previous-button,
+  .parent-back-home,
+  .primary-button,
+  .secondary-button,
+  .invoice-download-button,
+  .invoice-print-button,
+  .invoice-finish-button,
+  .invoice-back-button,
+  .hero-button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+/* Stack invoice toolbar actions on small screens */
+@media (max-width: 520px) {
+  .invoice-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .invoice-toolbar-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .invoice-toolbar-actions button {
+    width: 100%;
+  }
+}
+
+/* Stack payment actions on very small screens */
+@media (max-width: 420px) {
+  .payment-actions {
+    flex-direction: column-reverse;
+  }
+
+  .payment-actions button {
+    width: 100%;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
